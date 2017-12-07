@@ -97,6 +97,37 @@ It builds server.bundle.js in production mode
 
 It lunch server.bundle.js built in the previous steps
 
+## How to deploy
+
+### 1. Install dependencies
+
+Copy *package.json* to the server
+
+```shell
+> npm install
+```
+
+NOTE: We do steps above, because _node_modules_ are not included into
+built *server.bundle.js*. So, that's why we need _node_modules_ folder
+on the server.
+
+### 2. Build client and server
+
+```shell
+> npm run build-prod-client
+> npm run build-prod-server
+```
+
+### 3. Copy built content to the server
+
+Copy _dist_ folder to the server
+
+### 3. Lunch node server
+
+```shell
+> npm run start-prod-iso
+```
+
 ## License
 
 This software is distributed under an MIT licence.
