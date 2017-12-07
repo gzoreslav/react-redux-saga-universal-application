@@ -17,6 +17,8 @@ This approach fix SEO issues as well.
 
 It runs dev server with HMR and opens Browser
 
+| Name | Value |
+|------|-------|
 | Port | auto |
 | Open Browser | yes |
 | Build app.bundle.js | no |
