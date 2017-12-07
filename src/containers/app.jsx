@@ -8,10 +8,9 @@ class App extends Component {
     render() {
         const { store } = this.context;
         const state = store.getState();
-        console.log(state);
         return (
             <div>
-                <Info value={state} />
+                <Info value={state.counter} />
             </div>
         );
     }

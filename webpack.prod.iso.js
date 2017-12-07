@@ -14,9 +14,10 @@ fs.readdirSync('node_modules')
 module.exports = {
     context: path.join(__dirname, 'src'),
     target: 'node',
-    entry: {
-        app: '../server.js'
-    },
+    entry: [
+        'whatwg-fetch',
+        './server.js'
+    ],
     output: {
         path: path.join(__dirname, 'dist'),
         filename: 'server.bundle.js'
