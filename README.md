@@ -49,7 +49,7 @@ It builds app.bundle.js in dev mode and runs dev universal server with HMR and o
 
 ### Build for production
 
-You have to build client first and server build then.
+You have to build client first and build server then.
 
 #### Build client
 
