@@ -1,0 +1,28 @@
+body {
+  margin: 0;
+  font-family: 'Open Sans', sans-serif;
+}
+
+#root {
+  color: $default;
+
+  > h1 {
+    color: $react;
+    margin: 0;
+    padding: 10px 15px 10px 50px ;
+    background: $header url(~/public/images/react-logo.svg) 15px center no-repeat;
+    background-size: 30px;
+  }
+
+  .content {
+    padding: 10px 20px;
+
+    .code {
+      background-color: $background;
+      padding: 8px;
+      color: $snow;
+      font-weight: 300;
+      border-radius: 4px
+    }
+  }
+}

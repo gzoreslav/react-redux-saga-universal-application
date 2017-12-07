@@ -1,0 +1,59 @@
+{
+  "name": "the-simplest-webpack-react-starter-kit",
+  "version": "1.0.0",
+  "description": "The simplest webpack starter kit for React",
+  "main": "index.js",
+  "scripts": {
+    "start-dev-client": "webpack-dev-server --open --config webpack.dev.js",
+    "start-dev-iso": "webpack --config webpack.dev.iso.js; nodemon --watch src server.js -e js,jsx --exec babel-node --presets es2015,stage-2",
+    "build-prod-client": "webpack --config webpack.prod.js",
+    "build-prod-server": "webpack --config webpack.prod.iso.js",
+    "start-prod-iso": "node dist/server.bundle.js"
+  },
+  "keywords": [
+    "es6",
+    "react",
+    "react-16",
+    "sass",
+    "webpack",
+    "babel",
+    "starter-kit"
+  ],
+  "author": "gzoreslav@gmail.com",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-env": "^1.6.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-2": "^6.24.1",
+    "clean-webpack-plugin": "^0.1.17",
+    "copy-webpack-plugin": "^4.1.1",
+    "css-loader": "^0.28.7",
+    "extract-text-webpack-plugin": "^3.0.1",
+    "fs": "0.0.1-security",
+    "html-webpack-plugin": "^2.30.1",
+    "node-sass": "^4.5.3",
+    "nodemon": "^1.12.4",
+    "sass-loader": "^6.0.6",
+    "style-loader": "^0.19.0",
+    "webpack": "^3.6.0",
+    "webpack-dev-middleware": "^1.12.0",
+    "webpack-dev-server": "^2.9.1",
+    "webpack-merge": "^4.1.0"
+  },
+  "dependencies": {
+    "express": "^4.16.2",
+    "prop-types": "^15.6.0",
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0",
+    "react-redux": "^5.0.6",
+    "redux": "^3.7.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gzoreslav/the-simplest-webpack-react-starter-kit.git"
+  }
+}
