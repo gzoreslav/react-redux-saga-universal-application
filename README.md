@@ -36,6 +36,8 @@ It runs dev server with HMR and opens Browser
 
 It builds app.bundle.js in dev mode and runs dev universal server with HMR and opens Browser
 
+| Name | Value |
+|------|-------|
 | Port | 3030 |
 | Open Browser | no |
 | Build app.bundle.js | yes, in dev mode |
@@ -57,6 +59,8 @@ You have to build client first and server build then.
 
 It builds app.bundle.js in production mode and copies resources to dist folder
 
+| Name | Value |
+|------|-------|
 | Port | - |
 | Open Browser | no |
 | Build app.bundle.js | yes, in prod mode |
@@ -74,6 +78,8 @@ It builds app.bundle.js in production mode and copies resources to dist folder
 
 It builds server.bundle.js in production mode
 
+| Name | Value |
+|------|-------|
 | Port | 3030 |
 | Open Browser | no |
 | Build app.bundle.js | no |
