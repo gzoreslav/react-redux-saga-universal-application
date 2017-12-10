@@ -1,49 +1,74 @@
-import qs from 'qs';
 import Express from 'express';
 import React from 'react';
-import { createStore } from 'redux';
-import { Provider } from 'react-redux';
+import {createStore} from 'redux';
+import {Provider} from 'react-redux';
 import eventsApp from './reducers';
-import App from './containers/app.jsx';
+import App from './containers/App.jsx';
 import ReactDOMServer from 'react-dom/server';
-import { fetchCounter } from './api/counter'
+import { StaticRouter } from 'react-router';
+import { matchPath } from 'react-router-dom';
+import routes from './routes';
 
 
 const app = Express();
 const port = 3030;
 
 //Serve static files
-app.use(Express.static(__dirname + '/dist'));
+app.use(Express.static('dist'));
 
 // This is fired every time the server side receives a request
 app.use(handleRender);
 
 function handleRender(req, res) {
-    // Query our mock API asynchronously
-    fetchCounter(apiResult => {
-        // Read the counter from the request, if provided
-        const params = qs.parse(req.query);
-        const counter = parseInt(params.counter, 10) || apiResult || 0;
+    preloadData(req, res, continueRender);
+}
 
-        // Compile an initial state
-        let preloadedState = { counter };
+const preloadData = (req, res, proceed) => {
+    let promises = [];
 
-        // Create a new Redux store instance
-        const store = createStore(eventsApp, preloadedState);
+    routes.some(route => {
+        const match = matchPath(req.url, route);
+        if (match && route.loadData) {
+            promises.push(route.loadData());
+        }
+        return match;
+    });
 
-        // Render the component to a string
-        const html = ReactDOMServer.renderToString(
-            <Provider store={store}>
-                <App />
-            </Provider>
-        );
+    if (!promises.length) {
+        proceed(req, res, null);
+    } else {
+        Promise.all(promises).then(data => {
+            proceed(req, res, data[0]);
+        });
+    }
+};
 
-        // Grab the initial state from our Redux store
-        const finalState = store.getState();
+function continueRender(req, res, data) {
+    let preloadedState = {counter: data ? data[0].name : data};
 
-        // Send the rendered page back to the client
-        res.send(renderFullPage(html, finalState));
-    })
+
+    // Create a new Redux store instance
+    const store = createStore(eventsApp, preloadedState);
+
+    const context = {};
+
+    // Render the component to a string
+    const html = ReactDOMServer.renderToString(
+        <Provider store={store}>
+            <StaticRouter
+                location={req.url}
+                context={context}
+            >
+                <App/>
+            </StaticRouter>
+        </Provider>
+    );
+
+    // Grab the initial state from our Redux store
+    const finalState = store.getState();
+
+    // Send the rendered page back to the client
+    res.send(renderFullPage(html, finalState));
 }
 
 function renderFullPage(html, preloadedState) {
@@ -60,7 +85,7 @@ function renderFullPage(html, preloadedState) {
           // http://redux.js.org/docs/recipes/ServerRendering.html#security-considerations
           window.__PRELOADED_STATE__ = ${JSON.stringify(preloadedState).replace(/</g, '\\u003c')}
         </script>
-        <script src="app.bundle.js"></script>
+        <script src="client.bundle.js"></script>
       </body>
     </html>
     `

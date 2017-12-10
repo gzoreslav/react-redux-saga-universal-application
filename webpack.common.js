@@ -8,11 +8,11 @@ module.exports = {
     context: path.join(__dirname, 'src'),
     entry: [
         'whatwg-fetch',
-        './main.jsx'
+        './client.js'
     ],
     output: {
         path: path.join(__dirname, 'dist'),
-        filename: '[name].bundle.js'
+        filename: 'client.bundle.js'
     },
     module: {
         rules: [

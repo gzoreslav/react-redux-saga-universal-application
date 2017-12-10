@@ -3,6 +3,14 @@ import PropTypes from "prop-types";
 
 
 class Info extends Component {
+    constructor(props) {
+        super(props);
+    }
+
+    componentDidMount() {
+
+    }
+
     render() {
         const { store } = this.context;
         const state = store.getState();
