@@ -1,13 +1,14 @@
 import Express from 'express';
 import React from 'react';
-import {createStore} from 'redux';
+//import {createStore} from 'redux';
 import {Provider} from 'react-redux';
-import eventsApp from './reducers';
+//import rootReducer from './reducers';
 import App from './containers/App.jsx';
 import ReactDOMServer from 'react-dom/server';
 import { StaticRouter } from 'react-router';
 import { matchPath } from 'react-router-dom';
 import routes from './routes';
+import configureStore from './stores/configureStores';
 
 
 const app = Express();
@@ -38,21 +39,17 @@ const preloadData = (req, res, proceed) => {
         proceed(req, res, null);
     } else {
         Promise.all(promises).then(data => {
+            // TODO handle more promises in feature if needed
             proceed(req, res, data[0]);
         });
     }
 };
 
 function continueRender(req, res, data) {
-    let preloadedState = {counter: data ? data[0].name : data};
-
-
-    // Create a new Redux store instance
-    const store = createStore(eventsApp, preloadedState);
-
+    let preloadedState = {images: data || []};
+    const store = configureStore(preloadedState);
     const context = {};
 
-    // Render the component to a string
     const html = ReactDOMServer.renderToString(
         <Provider store={store}>
             <StaticRouter
@@ -64,10 +61,8 @@ function continueRender(req, res, data) {
         </Provider>
     );
 
-    // Grab the initial state from our Redux store
     const finalState = store.getState();
 
-    // Send the rendered page back to the client
     res.send(renderFullPage(html, finalState));
 }
 

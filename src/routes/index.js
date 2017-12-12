@@ -1,6 +1,6 @@
-import Info from '../components/info.jsx';
+import Media from '../components/media.jsx';
 import Home from '../components/home.jsx';
-import { fetchCounter } from '../api/counter';
+import { flickrImages } from '../api/media';
 
 
 export default [
@@ -14,8 +14,8 @@ export default [
         component: Home
     },
     {
-        path: '/info',
-        component: Info,
-        loadData: () => fetchCounter()
+        path: '/media',
+        component: Media,
+        loadData: () => flickrImages()
     }
 ];

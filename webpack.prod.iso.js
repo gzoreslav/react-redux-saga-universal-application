@@ -15,6 +15,7 @@ module.exports = {
     context: path.join(__dirname, 'src'),
     target: 'node',
     entry: [
+        'babel-polyfill',
         'whatwg-fetch',
         './server.js'
     ],

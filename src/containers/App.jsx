@@ -24,14 +24,14 @@ export default () => (
     <div>
         <ul>
             <li><Link to="/">Home</Link></li>
-            <li><Link to="/info">Info</Link></li>
+            <li><Link to="/media">Media</Link></li>
         </ul>
         <hr/>
         <Switch>
             {routes.map(route => (
                 <Route {...route}/>
             ))}
-            {/*<Route component={NotFound}/>*/}
+            <Route component={NotFound}/>
         </Switch>
     </div>
 );
