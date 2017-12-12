@@ -1,32 +1,27 @@
 # The simplest React Universal Application
 
-This example allows you to create React universal application:
+This boilerplate example allows you to create React universal application:
 
-* server rendering for the first lunch (and if JS is disabled)
+* server-side rendering for the first lunch with API data fetching (and if JS is disabled)
 * SPA in other cases
 
-This approach fix SEO issues as well.
+## Why this boilerplate?
+
+* all new packages used (react v16, react-ruoter v4)
+* modern approach used - redux, redux-saga, react-router v4
+* created using officiall recomendation for server-side rendering from redux and react-router
+* one routing file
+* no blink efect once bundle.js is loaded
+* minimall eforts for making page server-rendering - just add method for data loading
+* SEO-friendly as well
 
 ## How to develop, build and lunch?
 
-### Run in development mode
+There are few options for lunch:
 
-```shell
-> npm run start-dev-client
-```
-
-It runs dev server with HMR and opens Browser
-
-| Name | Value |
-|------|-------|
-| Port | auto |
-| Open Browser | yes |
-| Build app.bundle.js | no |
-| Copy resources (fonts, css, images, etc.) to dist | no |
-| Build server.bundle.js | no |
-| HMR for app.bundle.js | yes |
-| HMR for server.bundle.js | no |
-| Server Rendering | no |
+* Run in development mode and check server rendering - shows all application's opportunities (server-side rendering for the first lunch with fetchind data from the server using API), working as the SPA after the firs lunch
+* Run in development mode - use this options for developing
+* Build for production and run - build client and server bundles, start node server
 
 ### Run in development mode and check server rendering
 
@@ -40,12 +35,31 @@ It builds app.bundle.js in dev mode and runs dev universal server with HMR and o
 |------|-------|
 | Port | 3030 |
 | Open Browser | no |
-| Build app.bundle.js | yes, in dev mode |
+| Build client.bundle.js | yes, in dev mode |
 | Copy resources (fonts, css, images, etc.) to dist | yes |
 | Build server.bundle.js | no |
-| HMR for app.bundle.js | no |
+| HMR for client.bundle.js | no |
 | HMR for server.bundle.js | yes |
 | Server Rendering | yes |
+
+### Run in development mode
+
+```shell
+> npm run start-dev-client
+```
+
+It runs dev server with HMR and opens Browser
+
+| Name | Value |
+|------|-------|
+| Port | auto |
+| Open Browser | yes |
+| Build client.bundle.js | no |
+| Copy resources (fonts, css, images, etc.) to dist | no |
+| Build server.bundle.js | no |
+| HMR for client.bundle.js | yes |
+| HMR for server.bundle.js | no |
+| Server Rendering | no |
 
 ### Build for production
 
@@ -63,10 +77,10 @@ It builds app.bundle.js in production mode and copies resources to dist folder
 |------|-------|
 | Port | - |
 | Open Browser | no |
-| Build app.bundle.js | yes, in prod mode |
+| Build client.bundle.js | yes, in prod mode |
 | Copy resources (fonts, css, images, etc.) to dist | yes |
 | Build server.bundle.js | no |
-| HMR for app.bundle.js | no |
+| HMR for client.bundle.js | no |
 | HMR for server.bundle.js | no |
 | Server Rendering | - |
 
@@ -82,10 +96,10 @@ It builds server.bundle.js in production mode
 |------|-------|
 | Port | 3030 |
 | Open Browser | no |
-| Build app.bundle.js | no |
+| Build client.bundle.js | no |
 | Copy resources (fonts, css, images, etc.) to dist | no |
 | Build server.bundle.js | yes, in prod mode |
-| HMR for app.bundle.js | no |
+| HMR for client.bundle.js | no |
 | HMR for server.bundle.js | no |
 | Server Rendering | yes |
 
@@ -127,6 +141,14 @@ Copy _dist_ folder to the server
 ```shell
 > npm run start-prod-iso
 ```
+
+## Credits
+
+...
+
+## Sending Feedback
+
+I am always open to [your feedback](https://github.com/gzoreslav/The-Simplest-React-Universal-Application/issues).
 
 ## License
 
