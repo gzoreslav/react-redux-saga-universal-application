@@ -5,16 +5,32 @@ import { searchMediaAction } from '../actions/mediaActions';
 
 
 const NoData = ({images}) => {
-    return images.length ? null : <p>Client side loading...</p>
+    if (images.length) {
+        return null;
+    }
+    return (
+        <div>
+            <p>Client side loading or no data</p>
+            <span>TODO: implement metadata for processing state</span>
+        </div>
+    );
 };
 
 class Media extends Component {
     constructor(props) {
         super(props);
+        this.handleSearch = this.handleSearch.bind(this);
     }
 
     componentDidMount() {
         this.props.dispatch(searchMediaAction());
+    }
+
+    handleSearch(event) {
+        event.preventDefault();
+        if (this.query !== null) {
+            this.props.dispatch(searchMediaAction(this.query.value));
+        }
     }
 
     render() {
@@ -22,6 +38,17 @@ class Media extends Component {
         return (
             <div>
                 <h1>Flickr images</h1>
+                <input
+                    type="text"
+                    ref={ref => (this.query = ref)}
+                />
+                <input
+                    type="submit"
+                    className="btn btn-primary"
+                    value="Search Library"
+                    onClick={this.handleSearch}
+                />
+                <h2>Search results</h2>
                 <NoData images={images}/>
                 {images.map(image => (
                     <div key={image.id}>
