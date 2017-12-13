@@ -15,6 +15,22 @@ This boilerplate example allows you to create React universal application:
 * minimall eforts for making page server-rendering - just add method for data loading
 * SEO-friendly as well
 
+## Installation
+
+```shell
+> git clone https://github.com/gzoreslav/The-Simplest-React-Universal-Application.git
+> cd The-Simplest-React-Universal-Application.git
+> npm i
+```
+
+**Note:** You may have to install nodemon and babel-cli globally
+
+```shell
+> npm i nodemon -g
+> npm i babel-cli -g
+```
+
+
 ## How to develop, build and lunch?
 
 There are few options for lunch:
