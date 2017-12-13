@@ -2,17 +2,17 @@ const path = require('path');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
-
-
+const {distPath, templatePath, srcPath, nodeModulePath, staticPath} = require("./path");
+console.log(nodeModulePath);
 module.exports = {
-    context: path.join(__dirname, 'src'),
+    context: srcPath,
     entry: [
         'babel-polyfill',
         'whatwg-fetch',
-        './client.js'
+        './client.js',
     ],
     output: {
-        path: path.join(__dirname, 'dist'),
+        path: distPath,
         filename: 'client.bundle.js'
     },
     module: {
@@ -34,13 +34,13 @@ module.exports = {
     },
     resolve: {
         modules: [
-            path.join(__dirname, 'node_modules')
+            nodeModulePath
         ]
     },
     plugins: [
         new CleanWebpackPlugin(['dist']),
         new CopyWebpackPlugin([
-            {from: '../static'}
+            {from: staticPath}
         ]),
         new ExtractTextPlugin('main.css')
     ]
