@@ -4,10 +4,10 @@
   "description": "The simplest webpack starter kit for React",
   "main": "index.js",
   "scripts": {
-    "start-dev-client": "webpack-dev-server --open --config webpack.dev.js",
-    "start-dev-iso": "webpack --config webpack.dev.iso.js & nodemon --watch src src/server.js -e js,jsx --exec babel-node --presets es2015,stage-2",
-    "build-prod-client": "webpack --config webpack.prod.js",
-    "build-prod-server": "webpack --config webpack.prod.iso.js",
+    "start-dev-client": "webpack-dev-server --open --config ./webpack/webpack.dev.js",
+    "start-dev-iso": "webpack --config ./webpack/webpack.dev.iso.js & nodemon --watch src src/server.js -e js,jsx --exec babel-node --presets es2015,stage-2",
+    "build-prod-client": "webpack --config ./webpack/webpack.prod.js",
+    "build-prod-server": "webpack --config ./webpack/webpack.prod.iso.js",
     "start-prod-iso": "node dist/server.bundle.js"
   },
   "keywords": [

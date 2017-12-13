@@ -1,6 +1,7 @@
 const path = require('path');
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 const fs = require('fs');
+const {distPath, srcPath} = require("./path");
 
 let nodeModules = {};
 fs.readdirSync('node_modules')
@@ -12,7 +13,7 @@ fs.readdirSync('node_modules')
     });
 
 module.exports = {
-    context: path.join(__dirname, 'src'),
+    context: srcPath,
     target: 'node',
     entry: [
         'babel-polyfill',
@@ -20,7 +21,7 @@ module.exports = {
         './server.js'
     ],
     output: {
-        path: path.join(__dirname, 'dist'),
+        path: distPath,
         filename: 'server.bundle.js'
     },
     module: {
