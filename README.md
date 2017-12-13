@@ -19,7 +19,7 @@ This boilerplate example allows you to create React universal application:
 
 ```shell
 > git clone https://github.com/gzoreslav/The-Simplest-React-Universal-Application.git
-> cd The-Simplest-React-Universal-Application.git
+> cd The-Simplest-React-Universal-Application
 > npm i
 ```
 
