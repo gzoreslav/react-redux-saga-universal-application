@@ -1,7 +1,7 @@
 const path = require('path');
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 const fs = require('fs');
-const {serverEntryPath, distPath, srcPath} = require("./path");
+const {distPath, srcPath} = require("./path");
 
 let nodeModules = {};
 fs.readdirSync('node_modules')
