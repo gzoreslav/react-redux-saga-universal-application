@@ -1,4 +1,4 @@
-# The simplest React Universal Application
+# React Redux-Saga universal application
 
 This boilerplate example allows you to create React universal application:
 
@@ -18,8 +18,8 @@ This boilerplate example allows you to create React universal application:
 ## Installation
 
 ```shell
-> git clone https://github.com/gzoreslav/The-Simplest-React-Universal-Application.git
-> cd The-Simplest-React-Universal-Application
+> git clone https://github.com/gzoreslav/react-redux-saga-universal-application.git
+> cd react-redux-saga-universal-application
 > npm i
 ```
 
