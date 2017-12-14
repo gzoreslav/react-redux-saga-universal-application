@@ -3,6 +3,10 @@
 [![Dependency Status](https://david-dm.org/gzoreslav/react-redux-saga-universal-application.svg)](https://david-dm.org/gzoreslav/react-redux-saga-universal-application)
 [![devDependencies Status](https://david-dm.org/gzoreslav/react-redux-saga-universal-application/dev-status.svg)](https://david-dm.org/gzoreslav/react-redux-saga-universal-application?type=dev)
 
+[![GitHub Release](https://github-basic-badges.herokuapp.com/release/gzoreslav/react-redux-saga-universal-application.svg)]()
+[![GitHub Download Count](https://github-basic-badges.herokuapp.com/downloads/gzoreslav/react-redux-saga-universal-application/total.svg)]()
+[![GitHub Issues Open](https://github-basic-badges.herokuapp.com/issues/gzoreslav/react-redux-saga-universal-application.svg)]()
+
 This boilerplate example allows you to create React universal application:
 
 * server-side rendering for the first lunch with API data fetching (and if JS is disabled)
