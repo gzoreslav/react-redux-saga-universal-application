@@ -163,10 +163,10 @@ Copy _dist_ folder to the server
 
 ## Credits
 
-https://redux.js.org/docs/recipes/ServerRendering.html
-https://reacttraining.com/react-router/web/guides/server-rendering
-https://scotch.io/tutorials/build-a-media-library-with-react-redux-and-redux-saga-part-1
-https://scotch.io/tutorials/build-a-media-library-with-react-redux-and-redux-saga-part-2
+* https://redux.js.org/docs/recipes/ServerRendering.html
+* https://reacttraining.com/react-router/web/guides/server-rendering
+* https://scotch.io/tutorials/build-a-media-library-with-react-redux-and-redux-saga-part-1
+* https://scotch.io/tutorials/build-a-media-library-with-react-redux-and-redux-saga-part-2
 
 ## Sending Feedback
 
