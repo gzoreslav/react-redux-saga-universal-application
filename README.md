@@ -1,6 +1,7 @@
 # React Redux-Saga universal application
 
 [![Dependency Status](https://david-dm.org/gzoreslav/react-redux-saga-universal-application.svg)](https://david-dm.org/gzoreslav/react-redux-saga-universal-application)
+[![devDependencies Status](https://david-dm.org/gzoreslav/react-redux-saga-universal-application/dev-status.svg)](https://david-dm.org/gzoreslav/react-redux-saga-universal-application?type=dev)
 
 This boilerplate example allows you to create React universal application:
 
