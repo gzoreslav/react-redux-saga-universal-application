@@ -1,5 +1,6 @@
 # React Redux-Saga universal application
 
+[![GitHub Release](https://github-basic-badges.herokuapp.com/release/gzoreslav/react-redux-saga-universal-application.svg)]()
 [![Dependency Status](https://david-dm.org/gzoreslav/react-redux-saga-universal-application.svg)](https://david-dm.org/gzoreslav/react-redux-saga-universal-application)
 [![devDependencies Status](https://david-dm.org/gzoreslav/react-redux-saga-universal-application/dev-status.svg)](https://david-dm.org/gzoreslav/react-redux-saga-universal-application?type=dev)
 [![GitHub Issues Open](https://github-basic-badges.herokuapp.com/issues/gzoreslav/react-redux-saga-universal-application.svg)]()
