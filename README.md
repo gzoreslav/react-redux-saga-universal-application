@@ -1,5 +1,7 @@
 # React Redux-Saga universal application
 
+[![dependencies](https://david-dm.org/gzoreslav/react-redux-saga-universal-application.svg)
+
 This boilerplate example allows you to create React universal application:
 
 * server-side rendering for the first lunch with API data fetching (and if JS is disabled)
