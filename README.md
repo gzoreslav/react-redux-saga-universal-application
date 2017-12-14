@@ -1,12 +1,8 @@
 # React Redux-Saga universal application
 
 [![GitHub package version](https://img.shields.io/github/package-json/v/gzoreslav/react-redux-saga-universal-application.svg)]()
-[![GitHub downloads](https://img.shields.io/github/downloads/gzoreslav/react-redux-saga-universal-application/total.svg)]()
-
 [![Dependency Status](https://david-dm.org/gzoreslav/react-redux-saga-universal-application.svg)](https://david-dm.org/gzoreslav/react-redux-saga-universal-application)
 [![devDependencies Status](https://david-dm.org/gzoreslav/react-redux-saga-universal-application/dev-status.svg)](https://david-dm.org/gzoreslav/react-redux-saga-universal-application?type=dev)
-
-[![GitHub Issues Open](https://github-basic-badges.herokuapp.com/issues/gzoreslav/react-redux-saga-universal-application.svg)]()
 
 This boilerplate example allows you to create React universal application:
 
