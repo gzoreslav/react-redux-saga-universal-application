@@ -1,6 +1,6 @@
 {
   "name": "react-redux-saga-universal-application",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "The simplest webpack starter kit for React",
   "main": "index.js",
   "scripts": {
