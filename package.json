@@ -1,11 +1,11 @@
 {
   "name": "react-redux-saga-universal-application",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "The simplest webpack starter kit for React",
   "main": "index.js",
   "scripts": {
     "start-dev-client": "webpack-dev-server --open --config ./webpack/webpack.dev.js",
-    "start-dev-iso": "webpack --config ./webpack/webpack.dev.iso.js & nodemon --watch src src/server.js -e js,jsx --exec babel-node --presets es2015,stage-2",
+    "start-dev-iso": "concurrently \"nodemon src/server.js\" \"webpack --config ./webpack/webpack.dev.iso.js\"",
     "build-prod-client": "webpack --config ./webpack/webpack.prod.js",
     "build-prod-server": "webpack --config ./webpack/webpack.prod.iso.js",
     "start-prod-iso": "node dist/server.bundle.js"
@@ -17,7 +17,10 @@
     "sass",
     "webpack",
     "babel",
-    "starter-kit"
+    "starter-kit",
+    "redux",
+    "redux-saga",
+    "react-router-v4"
   ],
   "author": "gzoreslav@gmail.com",
   "license": "ISC",
@@ -31,6 +34,7 @@
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-2": "^6.24.1",
     "clean-webpack-plugin": "^0.1.17",
+    "concurrently": "^3.5.1",
     "copy-webpack-plugin": "^4.1.1",
     "css-loader": "^0.28.7",
     "extract-text-webpack-plugin": "^3.0.1",
@@ -63,5 +67,21 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/gzoreslav/react-redux-saga-universal-application.git"
+  },
+  "babel": {
+    "presets": [
+      "env",
+      "react",
+      "stage-2"
+    ]
+  },
+  "nodemonConfig": {
+    "watch": [
+      "src"
+    ],
+    "ext": "js jsx",
+    "execMap": {
+      "js": "babel-node --presets env,stage-2"
+    }
   }
 }

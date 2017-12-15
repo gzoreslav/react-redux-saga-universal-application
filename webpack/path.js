@@ -1,4 +1,5 @@
 const path = require('path');
+
 module.exports = {
     rootPath: path.join(__dirname, '../'),
     distPath: path.join(__dirname, '../dist'),
@@ -8,4 +9,4 @@ module.exports = {
     templatePath:  path.join(__dirname, '../index.ejs'),
     webpackPath: path.join(__dirname),
     nodeModulePath: path.join(__dirname, '../node_modules') 
-}
+};

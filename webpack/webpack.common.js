@@ -1,8 +1,7 @@
-const path = require('path');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const {distPath, srcPath, nodeModulePath, staticPath} = require("./path");
+const {distPath, srcPath, nodeModulePath, staticPath} = require('./path');
 
 module.exports = {
     context: srcPath,
