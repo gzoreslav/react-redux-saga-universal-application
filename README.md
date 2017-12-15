@@ -58,7 +58,7 @@ It builds app.bundle.js in dev mode and runs dev universal server with HMR and o
 | Build client.bundle.js | yes, in dev mode |
 | Copy resources (fonts, css, images, etc.) to dist | yes |
 | Build server.bundle.js | no |
-| HMR for client.bundle.js | no |
+| HMR for client.bundle.js | yes |
 | HMR for server.bundle.js | yes |
 | Server Rendering | yes |
 
