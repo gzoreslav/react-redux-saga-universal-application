@@ -1,6 +1,4 @@
-import {doClient} from './helper';
-import App from './containers/App.jsx';
-import rootReducer from './reducers';
-import rootSaga from './sagas';
+import { doClient } from './helper';
+import { appData } from './config';
 
-doClient({App, rootReducer, rootSaga});
+doClient(appData);

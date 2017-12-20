@@ -1,16 +1,11 @@
 import Express from 'express';
-import React from 'react';
-import routes from './routes';
-import rootReducer from './reducers';
-import rootSaga from './sagas';
-import App from './containers/App.jsx';
-import { handleRender, apiHandler, reactRender, pageRender } from './helper';
+import { handleRender as defaultHandleRender } from './helper';
+import { appConfig } from './config';
 
-
-const handleRenderBinded = handleRender(apiHandler, reactRender, pageRender, routes, rootReducer, rootSaga, App);
+const handleRender = defaultHandleRender(appConfig);
 
 const app = Express();
 const port = 3030;
 app.use(Express.static('dist'));
-app.use(handleRenderBinded);
+app.use(handleRender);
 app.listen(port);

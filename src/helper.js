@@ -1,10 +1,10 @@
 import React from 'react';
 import { hydrate } from 'react-dom';
-import { Provider } from 'react-redux';
+import ReactDOMServer from 'react-dom/server';
 import {BrowserRouter, matchPath} from 'react-router-dom';
 import { createStore, applyMiddleware } from 'redux';
+import { Provider } from 'react-redux';
 import createSagaMiddleware from 'redux-saga';
-import ReactDOMServer from 'react-dom/server';
 import { StaticRouter } from 'react-router';
 
 
@@ -36,18 +36,20 @@ export const doClient = ({App, rootReducer, rootSaga}) => {
     );
 };
 
-export function handleRender(_apiHandler, _reactRender, _pageRender, _routes, _rootReducer, _rootSaga, _app) {
+export function handleRender(config) {
+
     return function(req, res) {
-        _apiHandler(_reactRender, _pageRender, _routes, _rootReducer, _rootSaga, _app)(req, res);
+        config.next(req, res);
     }
 }
 
-export function apiHandler(_reactRender, _pageRender, _routes, _rootReducer, _rootSaga, _app)  {
+
+export function apiHandler(config)  {
 
     return function(req, res) {
         let selectedRoutes = [];
 
-        _routes.some(route => {
+        config.appData.routes.some(route => {
             const match = matchPath(req.url, route);
             if (match) {
                 selectedRoutes.push(route);
@@ -56,7 +58,7 @@ export function apiHandler(_reactRender, _pageRender, _routes, _rootReducer, _ro
         });
 
         if (!selectedRoutes.length) {
-            _reactRender(_pageRender, null, _rootReducer, _rootSaga, _app)(req, res, null);
+            config.next(req, res);
         } else {
             let promises = [];
             selectedRoutes
@@ -66,16 +68,17 @@ export function apiHandler(_reactRender, _pageRender, _routes, _rootReducer, _ro
                     }
                 });
             Promise.all(promises).then(data => {
-                _reactRender(_pageRender, selectedRoutes[selectedRoutes.length - 1], _rootReducer, _rootSaga, _app)(req, res, data);
+                config.next(req, res, selectedRoutes[selectedRoutes.length - 1], data);
             });
         }
     }
 }
 
-export function reactRender(_pageRender, _route, _rootReducer, _rootSaga, _app) {
-    return function (req, res, data) {
-        let preloadedState = _route && _route.getPreloadedState ? _route.getPreloadedState(data) : {};
-        const store = configureStore({preloadedState, rootReducer: _rootReducer, rootSaga: _rootSaga});
+export function reactRender(config) {
+
+    return function (req, res, route, data) {
+        let preloadedState = route && route.getPreloadedState ? route.getPreloadedState(data) : {};
+        const store = configureStore({preloadedState, ...config.appData});
         const context = {};
 
         const html = ReactDOMServer.renderToString(
@@ -84,33 +87,36 @@ export function reactRender(_pageRender, _route, _rootReducer, _rootSaga, _app) 
                     location={req.url}
                     context={context}
                 >
-                    <_app/>
+                    <config.appData.App />
                 </StaticRouter>
             </Provider>
         );
 
         const finalState = store.getState();
 
-        res.send(_pageRender(html, finalState, _route));
+        res.send(config.next(html, finalState, route));
     }
 }
 
-export function pageRender(html, preloadedState, route) {
-    return `
-    <!doctype html>
-    <html>
-      <head>
-        <title>${route ? route.pageTitle + ' - ' : ''}react-redux-saga-universal-application</title>
-      </head>
-      <body>
-        <div id="root">${html}</div>
-        <script>
-          // WARNING: See the following for security issues around embedding JSON in HTML:
-          // http://redux.js.org/docs/recipes/ServerRendering.html#security-considerations
-          window.__PRELOADED_STATE__ = ${JSON.stringify(preloadedState).replace(/</g, '\\u003c')}
-        </script>
-        <script src="client.bundle.js"></script>
-      </body>
-    </html>
-    `
+export function pageRender(config) {
+
+    return function(html, preloadedState, route) {
+        return `
+            <!doctype html>
+            <html>
+              <head>
+                <title>${config.getPageTitle(route)}</title>
+              </head>
+              <body>
+                <div id="root">${html}</div>
+                <script>
+                  // WARNING: See the following for security issues around embedding JSON in HTML:
+                  // http://redux.js.org/docs/recipes/ServerRendering.html#security-considerations
+                  window.__PRELOADED_STATE__ = ${JSON.stringify(preloadedState).replace(/</g, '\\u003c')}
+                </script>
+                <script src="client.bundle.js"></script>
+              </body>
+            </html>
+            `;
+    }
 }
