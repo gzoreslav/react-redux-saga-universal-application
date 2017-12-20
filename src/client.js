@@ -1,17 +1,6 @@
-import React from 'react';
-import { hydrate } from 'react-dom';
-import { Provider } from 'react-redux';
+import {doClient} from './helper';
 import App from './containers/App.jsx';
-import { BrowserRouter } from 'react-router-dom';
-import configureStore from './stores/configureStores';
+import rootReducer from './reducers';
+import rootSaga from './sagas';
 
-const store = configureStore();
-
-hydrate(
-    <Provider store={store}>
-        <BrowserRouter>
-            <App/>
-        </BrowserRouter>
-    </Provider>,
-    document.getElementById('root')
-);
+doClient({App, rootReducer, rootSaga});

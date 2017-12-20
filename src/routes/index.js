@@ -8,17 +8,21 @@ export default [
         path: '/',
         key: 'root',
         exact: true,
-        component: Home
+        component: Home,
+        pageTitle: 'Root'
     },
     {
         path: '/home',
         key: 'home',
-        component: Home
+        component: Home,
+        pageTitle: 'Home'
     },
     {
         path: '/media',
         key: 'media',
         component: Media,
-        loadData: () => flickrImages()
+        loadData: () => flickrImages(),
+        getPreloadedState: data => ({images: data[0] || []}),
+        pageTitle: 'Media'
     }
 ];
