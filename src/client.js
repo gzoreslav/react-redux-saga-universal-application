@@ -1,17 +1,4 @@
-import React from 'react';
-import { hydrate } from 'react-dom';
-import { Provider } from 'react-redux';
-import App from './containers/App.jsx';
-import { BrowserRouter } from 'react-router-dom';
-import configureStore from './stores/configureStores';
+import { doClient } from 'react-redux-saga-server-side-render-helper';
+import { appData } from './config';
 
-const store = configureStore();
-
-hydrate(
-    <Provider store={store}>
-        <BrowserRouter>
-            <App/>
-        </BrowserRouter>
-    </Provider>,
-    document.getElementById('root')
-);
+doClient(appData);
