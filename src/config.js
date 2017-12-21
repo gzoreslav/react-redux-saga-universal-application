@@ -2,7 +2,7 @@ import routes from './routes';
 import rootReducer from './reducers';
 import rootSaga from './sagas';
 import App from './containers/App.jsx';
-import { apiHandler, reactRender, pageRender } from './helper';
+import { apiHandler, reactRender, pageRender } from 'react-redux-saga-server-side-render-helper';
 
 
 const appName = 'react-redux-saga-universal-application v2';
