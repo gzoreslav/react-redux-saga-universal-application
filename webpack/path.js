@@ -1,5 +1,6 @@
 const path = require('path');
 
+
 module.exports = {
     rootPath: path.join(__dirname, '../'),
     distPath: path.join(__dirname, '../dist'),
@@ -8,5 +9,5 @@ module.exports = {
     staticPath: path.join(__dirname, '../static'),
     templatePath:  path.join(__dirname, '../index.ejs'),
     webpackPath: path.join(__dirname),
-    nodeModulePath: path.join(__dirname, '../node_modules') 
+    nodeModulePath: path.join(__dirname, '../node_modules'),
 };

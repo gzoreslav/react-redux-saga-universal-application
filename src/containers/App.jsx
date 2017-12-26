@@ -2,6 +2,7 @@ import React from 'react';
 import { Switch, Route } from 'react-router';
 import routes from '../routes';
 import { Link } from 'react-router-dom';
+import { Row, Col} from 'react-bootstrap';
 
 
 const Status = ({ code, children }) => (
@@ -22,16 +23,19 @@ const NotFound = () => (
 
 export default () => (
     <div>
-        <ul>
-            <li><Link to="/">Home</Link></li>
-            <li><Link to="/media">Media</Link></li>
-        </ul>
-        <hr/>
-        <Switch>
-            {routes.map(route => (
-                <Route {...route}/>
-            ))}
-            <Route component={NotFound}/>
-        </Switch>
+        <Row>
+            <Col xs={12}>
+                <Link to="/">Home</Link>&nbsp;
+                <Link to="/media">Media</Link>
+            </Col>
+        </Row>
+        <div className="container">
+            <Switch>
+                {routes.map(route => (
+                    <Route {...route}/>
+                    ))}
+                <Route component={NotFound}/>
+            </Switch>
+        </div>
     </div>
 );

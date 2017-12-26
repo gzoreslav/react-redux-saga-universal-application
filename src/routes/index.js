@@ -22,7 +22,7 @@ export default [
         key: 'media',
         component: Media,
         loadData: () => flickrImages(),
-        getPreloadedState: data => ({images: data[0] || []}),
+        getPreloadedState: data => ({images: {data: data[0] || []}}),
         pageTitle: 'Media'
     }
 ];

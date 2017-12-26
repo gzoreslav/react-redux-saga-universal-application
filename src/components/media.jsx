@@ -34,7 +34,7 @@ class Media extends Component {
     }
 
     render() {
-        const { images } = this.props;
+        const { data, selected } = this.props.images;
         return (
             <div>
                 <h1>Flickr images</h1>
@@ -49,11 +49,13 @@ class Media extends Component {
                     onClick={this.handleSearch}
                 />
                 <h2>Search results</h2>
-                <NoData images={images}/>
-                {images.map(image => (
-                    <div key={image.id}>
-                        <h3>{image.title}</h3>
-                        <img src={image.mediaUrl} alt={image.title} />
+                <NoData images={data}/>
+                {data.map(image => (
+                    <div className="media-object">
+                        <picture key={image.id} className="img-fluid img-thumbnail">
+                            <p>{image.title}</p>
+                            <img src={image.mediaUrl} alt={image.title} />
+                        </picture>
                     </div>
                 ))}
             </div>
@@ -62,7 +64,7 @@ class Media extends Component {
 }
 
 Media.propTypes = {
-    images: PropTypes.array,
+    images: PropTypes.object,
     dispatch: PropTypes.func.isRequired
 };
 
@@ -70,9 +72,8 @@ Media.propTypes = {
 const mapStateToProps = (state) => {
     return {
         images: state.images
-    }
+    };
 };
 
 /* connect method from react-router connects the component with redux store */
-export default connect(
-    mapStateToProps)(Media);
+export default connect(mapStateToProps)(Media);
