@@ -10,10 +10,10 @@ This boilerplate example allows you to create React universal application:
 * SPA in other cases
 
 *JS Off (server-side render)*
-![Alt text](screenshots/javascript-off.gif?raw=true "JS Off")
+<img src="screenshots/javascript-off.gif?raw=true" width="50%">
 
 *JS On (client-side render)*
-![Alt text](screenshots/javascript-on.gif?raw=true "JS On")
+<img src="screenshots/javascript-on.gif?raw=true" width="50%">
 
 ## Why this boilerplate?
 
