@@ -9,11 +9,9 @@ This boilerplate example allows you to create React universal application:
 * server-side rendering for the first lunch with API data fetching (and if JS is disabled)
 * SPA in other cases
 
-*JS Off (server-side render)*
-<img src="screenshots/javascript-off.gif?raw=true" width="50%">
-
-*JS On (client-side render)*
-<img src="screenshots/javascript-on.gif?raw=true" width="50%">
+| *JS Off (server-side render)* | *JS On (client-side render)* |
+|-------------------------------|------------------------------|
+| <img src="screenshots/javascript-off.gif?raw=true" width="50%"> | <img src="screenshots/javascript-on.gif?raw=true" width="50%"> |
 
 ## Why this boilerplate?
 
