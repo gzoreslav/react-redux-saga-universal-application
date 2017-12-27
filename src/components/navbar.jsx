@@ -20,6 +20,9 @@ class MainNavbar extends Component {
                             <li>
                                 <Link to="/media">Media</Link>
                             </li>
+                            <li>
+                                <Link to="/not_found">404 Not found</Link>
+                            </li>
                         </ul>
                     </div>
                 </div>
