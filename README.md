@@ -9,6 +9,8 @@ This boilerplate example allows you to create React universal application:
 * server-side rendering for the first lunch with API data fetching (and if JS is disabled)
 * SPA in other cases
 
+![Alt text](screenshots/javascript-off.gif?raw=true "JS Off")
+
 ## Why this boilerplate?
 
 * all new packages used (react v16, react-ruoter v4)
