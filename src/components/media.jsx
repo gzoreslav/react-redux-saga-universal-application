@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { searchMediaAction } from '../actions/mediaActions';
+import { searchMediaAction, selectImageAction } from '../actions/mediaActions';
+import { Row, Col, Thumbnail, Form, FormGroup, Button } from 'react-bootstrap';
 
 
 const NoData = ({images}) => {
@@ -10,8 +11,7 @@ const NoData = ({images}) => {
     }
     return (
         <div>
-            <p>Client side loading or no data</p>
-            <span>TODO: implement metadata for processing state</span>
+            <p>Loading...</p>
         </div>
     );
 };
@@ -33,32 +33,40 @@ class Media extends Component {
         }
     }
 
+    handleSelectImage(selectedImage) {
+        this.props.dispatch(selectImageAction(selectedImage));
+    }
+
     render() {
         const { data, selected } = this.props.images;
         return (
-            <div>
-                <h1>Flickr images</h1>
-                <input
-                    type="text"
-                    ref={ref => (this.query = ref)}
-                />
-                <input
-                    type="submit"
-                    className="btn btn-primary"
-                    value="Search Library"
-                    onClick={this.handleSearch}
-                />
-                <h2>Search results</h2>
-                <NoData images={data}/>
-                {data.map(image => (
-                    <div className="media-object">
-                        <picture key={image.id} className="img-fluid img-thumbnail">
-                            <p>{image.title}</p>
-                            <img src={image.mediaUrl} alt={image.title} />
-                        </picture>
-                    </div>
-                ))}
-            </div>
+            <Row>
+                <Col xs={8}>
+                    <Form inline>
+                        <FormGroup controlId="formInlineName">
+                            <input className="form-control" type="text" placeholder="Search" ref={ref => (this.query = ref)} />
+                        </FormGroup>
+                        {' '}
+                        <Button type="submit" onClick={this.handleSearch}>
+                            Search
+                        </Button>
+                    </Form>
+                    <h4>Search results</h4>
+                    <NoData images={data}/>
+                    {data.map(image => (
+                        <Thumbnail key={image.id} src={image.mediaUrl} className="img-preview" onClick={this.handleSelectImage.bind(this, image)}>
+                        </Thumbnail>
+                    ))}
+                </Col>
+                <Col xs={4}>
+                    <h3>Image details</h3>
+                    {selected ?
+                        <Thumbnail key={selected.id} src={selected.mediaUrl}>
+                            <p>{selected.title}</p>
+                        </Thumbnail> :
+                        <p>Please select image</p>}
+                </Col>
+            </Row>
         );
     }
 }
