@@ -166,6 +166,16 @@ Copy _dist_ folder to the server
 > npm run start-prod-iso
 ```
 
+## What new?
+
+### v.2.x.x
+
+* added styling, supporting bootstrap v3 styling
+* added select image action
+* client/server rendering methods moved to the separate package https://www.npmjs.com/package/react-redux-saga-server-side-render-helper
+* added *Not Found* main menu link to show 404 route error handle
+* clean up package.json - removed unused packages
+
 ## Credits
 
 * https://redux.js.org/docs/recipes/ServerRendering.html
