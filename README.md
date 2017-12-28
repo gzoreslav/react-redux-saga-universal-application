@@ -176,6 +176,12 @@ Copy _dist_ folder to the server
 * added *Not Found* main menu link to show 404 route error handle
 * clean up package.json - removed unused packages
 
+### v3.x.x
+
+* added image details route with appropriate redux, routing, actions, etc. stuff
+* fixed helper package https://www.npmjs.com/package/react-redux-saga-server-side-render-helper
+* updated screenshots
+
 ## Credits
 
 * https://redux.js.org/docs/recipes/ServerRendering.html
