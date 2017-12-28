@@ -1,6 +1,7 @@
 export default {
     images: {
         data: [],
-        selected: {}
+        selected: {},
+        details: {}
     }
 };

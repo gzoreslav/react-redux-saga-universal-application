@@ -5,7 +5,7 @@ import App from './containers/App.jsx';
 import { apiHandler, reactRender, pageRender } from 'react-redux-saga-server-side-render-helper';
 
 
-const appName = 'react-redux-saga-universal-application v2';
+const appName = 'react-redux-saga-universal-application v3';
 
 export const appData = {
     routes,
