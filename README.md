@@ -15,7 +15,7 @@ This boilerplate example allows you to create React universal application:
 
 ## Why this boilerplate?
 
-* all new packages used (react v16, react-ruoter v4)
+* all new packages used (react v16, react-router v4)
 * modern approach used - redux, redux-saga, react-router v4
 * created using officiall recomendation for server-side rendering from redux and react-router
 * one routing file
