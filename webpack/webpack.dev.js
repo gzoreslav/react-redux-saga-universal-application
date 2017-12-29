@@ -6,11 +6,15 @@ const {distPath, templatePath} = require('./path');
 module.exports = merge(common, {
     devtool: 'inline-source-map',
     devServer: {
-        contentBase: distPath
+        contentBase: distPath,
+        historyApiFallback: true
+    },
+    output: {
+        publicPath: '/'
     },
     plugins: [
         new HtmlWebpackPlugin({
-            title: 'The simplest webpack starter kit for React',
+            title: 'React redux-saga universal application',
             template: templatePath,
         })
     ]

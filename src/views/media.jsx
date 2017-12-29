@@ -50,7 +50,7 @@ class ImagesList extends Component {
             return <NoData/>;
         }
         return (
-            <div>
+            <div className="content-wrapper">
                 {images.map(image => (
                     <FlickrImage
                         {...this.props}
@@ -83,7 +83,7 @@ class Media extends Component {
     }
 
     render() {
-        const {data, selected} = this.props.images;
+        const {data, selected, isProcessing} = this.props.images;
         return (
             <Row>
                 <Col xs={8}>
@@ -98,10 +98,12 @@ class Media extends Component {
                         </Button>
                     </Form>
                     <h4>Search results</h4>
-                    <ImagesList images={data} dispatch={this.props.dispatch}/>
+                    <Loading loading={isProcessing} mask={true}>
+                        <ImagesList images={data} dispatch={this.props.dispatch}/>
+                    </Loading>
                 </Col>
                 <Col xs={4}>
-                    <h3>Image preview</h3>
+                    <h3>Quick image preview</h3>
                     {selected ?
                         <FlickrImage
                             {...this.props}

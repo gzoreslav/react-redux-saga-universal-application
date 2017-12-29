@@ -1,0 +1,44 @@
+.full-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.loading {
+  position: relative;
+  min-height: 60vh;
+
+  &.full {
+    @extend .full-container;
+  }
+
+  .mask {
+    @extend .full-container;
+    background-color: #ccc;
+    opacity: 0.5;
+    z-index: 9999;
+    cursor: wait;
+  }
+
+  .spinner-container {
+    @extend .full-container;
+    margin: 40px auto;
+    height: 12px;
+    z-index: 9999;
+    cursor: wait;
+    display: block;
+    text-align: center;
+    font-size: 12px;
+    color: #333;
+
+    .spinner {
+      background: url(~/public/images/processing.gif) no-repeat center center;
+      width: 200px;
+      height: 150px;
+      margin: 0 auto;
+    }
+  }
+
+}

@@ -11,7 +11,7 @@ This boilerplate example allows you to create React universal application:
 
 | *JS Off (server-side render)* | *JS On (client-side render)* |
 |-------------------------------|------------------------------|
-| <img src="screenshots/javascript-off-v3.gif?raw=true"> | <img src="screenshots/javascript-on-v3.gif?raw=true"> |
+| <img src="screenshots/javascript-off-v4.gif?raw=true"> | <img src="screenshots/javascript-on-v4.gif?raw=true"> |
 
 ## Why this boilerplate?
 
@@ -168,6 +168,16 @@ Copy _dist_ folder to the server
 
 ## What new?
 
+### v4.x.x
+
+* added request processing metadata (ajax loading status, e.g. gif spinners)
+* fixed webpack stuff for client dev mode
+
+### v3.x.x
+
+* added image details route with appropriate redux, routing, actions, etc. stuff
+* fixed helper package https://www.npmjs.com/package/react-redux-saga-server-side-render-helper
+
 ### v.2.x.x
 
 * added styling, supporting bootstrap v3 styling
@@ -175,12 +185,6 @@ Copy _dist_ folder to the server
 * client/server rendering methods moved to the separate package https://www.npmjs.com/package/react-redux-saga-server-side-render-helper
 * added *Not Found* main menu link to show 404 route error handle
 * clean up package.json - removed unused packages
-
-### v3.x.x
-
-* added image details route with appropriate redux, routing, actions, etc. stuff
-* fixed helper package https://www.npmjs.com/package/react-redux-saga-server-side-render-helper
-* updated screenshots
 
 ## Credits
 

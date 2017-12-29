@@ -1,6 +1,6 @@
 {
   "name": "react-redux-saga-universal-application",
-  "version": "3.0.0",
+  "version": "4.0.0",
   "description": "React redux-saga universal application",
   "main": "index.js",
   "scripts": {
@@ -53,6 +53,7 @@
   },
   "dependencies": {
     "bootstrap": "^3.3.7",
+    "class-names": "^1.0.0",
     "express": "^4.16.2",
     "node-fetch": "^1.7.3",
     "prop-types": "^15.6.0",
@@ -60,7 +61,7 @@
     "react-bootstrap": "^0.31.5",
     "react-dom": "^16.0.0",
     "react-redux": "^5.0.6",
-    "react-redux-saga-server-side-render-helper": "^1.2.1",
+    "react-redux-saga-server-side-render-helper": "^2.0.2",
     "react-router": "^4.2.0",
     "react-router-dom": "^4.2.2",
     "redux": "^3.7.2",

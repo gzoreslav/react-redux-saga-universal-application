@@ -1,9 +1,9 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
 import { getImageDetailsAction } from '../actions/mediaActions';
-import {NoData, Loading} from '../components/tools.jsx';
-import {Row, Col} from 'react-bootstrap';
+import { Loading } from '../components/tools.jsx';
+import { Row, Col } from 'react-bootstrap';
 
 
 class ImageDetails extends Component {
@@ -12,12 +12,14 @@ class ImageDetails extends Component {
     }
 
     render() {
-        const { title, mediaUrl } = this.props.details;
+        const { details, isProcessing } = this.props.images;
         return (
             <Row>
                 <Col xs={12}>
-                    <h1>{title}</h1>
-                    <img src={mediaUrl}/>
+                    <Loading loading={isProcessing} mask={true}>
+                        <h1>{details.title}</h1>
+                        <img src={details.mediaUrl}/>
+                    </Loading>
                 </Col>
             </Row>
         );
@@ -32,7 +34,7 @@ ImageDetails.propTypes = {
 /* Subscribe component to redux store and merge the state into component\s props */
 const mapStateToProps = (state) => {
     return {
-        details: state.images.details || {}
+        images: state.images
     };
 };
 

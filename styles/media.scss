@@ -6,3 +6,13 @@
   margin-right: 10px;
   cursor: pointer;
 }
+
+.content-wrapper {
+
+  &:after {
+    content: ' ';
+    clear: both;
+    float: none;
+    display: table;
+  }
+}
