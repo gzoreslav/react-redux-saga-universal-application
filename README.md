@@ -168,6 +168,10 @@ Copy _dist_ folder to the server
 
 ## What new?
 
+### v5.x.x
+
+* handle API fetch errors for both: client and server -sides renderings
+
 ### v4.x.x
 
 * added request processing metadata (ajax loading status, e.g. gif spinners)
