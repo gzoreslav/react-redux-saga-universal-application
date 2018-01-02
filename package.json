@@ -1,6 +1,6 @@
 {
   "name": "react-redux-saga-universal-application",
-  "version": "4.1.0",
+  "version": "5.0.0",
   "description": "React redux-saga universal application",
   "main": "index.js",
   "scripts": {
@@ -61,7 +61,7 @@
     "react-bootstrap": "^0.31.5",
     "react-dom": "^16.0.0",
     "react-redux": "^5.0.6",
-    "react-redux-saga-server-side-render-helper": "^2.0.2",
+    "react-redux-saga-server-side-render-helper": "^2.1.0",
     "react-router": "^4.2.0",
     "react-router-dom": "^4.2.2",
     "redux": "^3.7.2",

@@ -17,7 +17,8 @@ export const flickrImages = (searchQuery) => {
                 title,
                 mediaUrl: `https://farm${farm}.staticflickr.com/${server}/${id}_${secret}.jpg`
             }));
-        });
+        })
+        .catch(ex => ({error: ex}));
 };
 
 export const imageDetail = (id) => {
@@ -33,5 +34,6 @@ export const imageDetail = (id) => {
                 title: title._content,
                 mediaUrl: `https://farm${farm}.staticflickr.com/${server}/${id}_${secret}.jpg`
             }
-        });
+        })
+        .catch(ex => ({error: ex}));
 };

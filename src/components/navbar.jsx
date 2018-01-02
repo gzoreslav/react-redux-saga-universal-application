@@ -24,7 +24,7 @@ class MainNavbar extends Component {
                                 <Link to="/not_found">404 Not found</Link>
                             </li>
                             <li>
-                                <Link to="/media/fetch_error">API fetch error handling (js only)</Link>
+                                <Link to="/media/fetch_error">API fetch error handling</Link>
                             </li>
                         </ul>
                     </div>

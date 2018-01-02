@@ -12,11 +12,11 @@ class ImageDetails extends Component {
     }
 
     render() {
-        const { details, isProcessing, error } = this.props.images;
+        const { details, isProcessing,} = this.props.images;
         return (
             <Row>
                 <Col xs={12}>
-                    <Loading loading={isProcessing} mask={true} isError={!!error} error={error}>
+                    <Loading loading={isProcessing} mask={true} isError={!!details.error} error={details.error}>
                         <h1>{details.title}</h1>
                         <img src={details.mediaUrl}/>
                     </Loading>
