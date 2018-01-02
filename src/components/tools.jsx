@@ -23,8 +23,11 @@ class Loading extends Component {
                 <div className="spinner"/>
             </div>
             : null;
-        const content = !this.props.showError || this.props.loading || (!this.props.loading && !this.props.error) ?
-            this.props.children : <p>Loading error</p>;
+        const content = !this.props.showError || this.props.loading || (!this.props.loading && !this.props.isError) ?
+            this.props.children :
+            <div className="alert alert-danger" role="alert">
+                <strong>Loading error</strong> {this.props.error.message || 'Unknown error'}
+            </div>;
         return (
             <div className={className}>
                 {content}
@@ -45,7 +48,7 @@ Loading.defaultProps = {
 
 Loading.propTypes = {
     loading: PropTypes.bool,
-    error: PropTypes.bool,
+    error: PropTypes.object,
     mask: PropTypes.bool,
     full: PropTypes.bool,
     spinner: PropTypes.bool,

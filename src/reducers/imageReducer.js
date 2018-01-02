@@ -14,6 +14,8 @@ export default function (state = initialState.images, action) {
             return { ...state, isProcessing: true };
         case types.GET_IMAGE_DETAILS_SUCCESS:
             return { ...state, details: action.image, isProcessing: false };
+        case types.GET_IMAGE_DETAILS_FAILURE:
+            return { ...state, details: {}, isProcessing: false, error: action.error };
         default:
             return state;
     }

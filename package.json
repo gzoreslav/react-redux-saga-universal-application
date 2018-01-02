@@ -1,6 +1,6 @@
 {
   "name": "react-redux-saga-universal-application",
-  "version": "4.0.0",
+  "version": "4.1.0",
   "description": "React redux-saga universal application",
   "main": "index.js",
   "scripts": {
