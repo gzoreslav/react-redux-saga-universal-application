@@ -11,7 +11,7 @@ This boilerplate example allows you to create React universal application:
 
 | *JS Off (server-side render)* | *JS On (client-side render)* |
 |-------------------------------|------------------------------|
-| <img src="screenshots/javascript-off-v4.gif?raw=true"> | <img src="screenshots/javascript-on-v4.gif?raw=true"> |
+| <img src="screenshots/javascript-off-v5.gif?raw=true"> | <img src="screenshots/javascript-on-v5.gif?raw=true"> |
 
 ## Why this boilerplate?
 

@@ -5,7 +5,7 @@ const FLICKR_API_KEY = 'a46a979f39c49975dbdd23b378e6d3d5';
 const BASE_URL = 'https://api.flickr.com/services/rest/';
 
 export const flickrImages = (searchQuery) => {
-    searchQuery = searchQuery || '2018';
+    searchQuery = searchQuery || 'new year 2018';
     const FLICKR_API_ENDPOINT = `${BASE_URL}?method=flickr.photos.search&text=${searchQuery}&api_key=${FLICKR_API_KEY}&format=json&nojsoncallback=1&per_page=10`;
     return fetch(FLICKR_API_ENDPOINT)
         .then(response => {
