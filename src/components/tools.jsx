@@ -11,35 +11,38 @@ export const NoData = () => {
     );
 };
 
+export const Spinner = ({style}) => (
+    <div style={style} className="spinner-container">
+        <div className="spinner"/>
+    </div>
+);
+
+export const Error = ({error}) => (
+    <div className="alert alert-danger" role="alert">
+        <strong>Loading error</strong> {error.message || 'Unknown error'}
+    </div>
+);
+
 class Loading extends Component {
 
     render() {
-        const style = {
-            display: this.props.loading ? 'block' : 'none'
-        };
-        const className = classNames('loading', {full: this.props.full}, this.props.size, this.props.className);
-        const spinner = this.props.spinner ?
-            <div style={style} className="spinner-container">
-                <div className="spinner"/>
-            </div>
-            : null;
-        const content = !this.props.showError || this.props.loading || (!this.props.loading && !this.props.isError) ?
-            this.props.children :
-            <div className="alert alert-danger" role="alert">
-                <strong>Loading error</strong> {this.props.error.message || 'Unknown error'}
-            </div>;
+        const {isProcessing, error, showError, mask, spinner, full, size, className, children} = this.props;
+        const style = {display: isProcessing ? 'block' : 'none'};
+        const content = !showError || isProcessing || (!isProcessing && !error) ? children : <Error error={error}/>;
+
         return (
-            <div className={className}>
+            <div className={classNames('loading', {full: full}, size, className)}>
                 {content}
-                {this.props.mask ? <div style={style} className="mask"/> : null}
-                {spinner}
+                {mask ? <div style={style} className="mask"/> : null}
+                {spinner ? <Spinner style={style}/> : null}
             </div>
         );
     }
 }
 
 Loading.defaultProps = {
-    loading: false,
+    metadata: {},
+    isProcessing: false,
     showError: true,
     mask: true,
     spinner: true,
@@ -47,8 +50,8 @@ Loading.defaultProps = {
 };
 
 Loading.propTypes = {
-    loading: PropTypes.bool,
     error: PropTypes.object,
+    isProcessing: PropTypes.bool,
     mask: PropTypes.bool,
     full: PropTypes.bool,
     spinner: PropTypes.bool,

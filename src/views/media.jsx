@@ -83,7 +83,7 @@ class Media extends Component {
     }
 
     render() {
-        const {data, selected, isProcessing} = this.props.images;
+        const {data, selected, metadata} = this.props.images;
         return (
             <Row>
                 <Col xs={8}>
@@ -98,7 +98,7 @@ class Media extends Component {
                         </Button>
                     </Form>
                     <h4>Search results</h4>
-                    <Loading loading={isProcessing} mask={true}>
+                    <Loading {...metadata} mask={true}>
                         <ImagesList images={data} dispatch={this.props.dispatch}/>
                     </Loading>
                 </Col>

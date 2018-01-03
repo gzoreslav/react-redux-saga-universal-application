@@ -7,18 +7,29 @@ import { Row, Col } from 'react-bootstrap';
 
 
 class ImageDetails extends Component {
+
+    loadData(props, id) {
+        props.dispatch(getImageDetailsAction(props.match.params.imageid));
+    }
+
     componentDidMount() {
-        this.props.dispatch(getImageDetailsAction(this.props.match.params.imageid));
+        this.loadData(this.props);
+    }
+
+    componentWillReceiveProps(nextProps) {
+        if (this.props.match.params.imageid !== nextProps.match.params.imageid) {
+            this.loadData(nextProps);
+        }
     }
 
     render() {
-        const { details, isProcessing,} = this.props.images;
+        const { data, metadata } = this.props.details;
         return (
             <Row>
                 <Col xs={12}>
-                    <Loading loading={isProcessing} mask={true} isError={!!details.error} error={details.error}>
-                        <h1>{details.title}</h1>
-                        <img src={details.mediaUrl}/>
+                    <Loading {...metadata} mask={true}>
+                        <h1>{data.title}</h1>
+                        <img src={data.mediaUrl}/>
                     </Loading>
                 </Col>
             </Row>
@@ -34,7 +45,7 @@ ImageDetails.propTypes = {
 /* Subscribe component to redux store and merge the state into component\s props */
 const mapStateToProps = (state) => {
     return {
-        images: state.images
+        details: state.details
     };
 };
 

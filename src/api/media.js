@@ -12,13 +12,20 @@ export const flickrImages = (searchQuery) => {
             return response.json();
         })
         .then(json => {
-            return json.photos.photo.map(({ farm, server, id, secret, title }) => ({
+            const data = json.photos.photo.map(({ farm, server, id, secret, title }) => ({
                 id,
                 title,
                 mediaUrl: `https://farm${farm}.staticflickr.com/${server}/${id}_${secret}.jpg`
             }));
+            return { data };
         })
-        .catch(ex => ({error: ex}));
+        .catch(ex => (
+            {
+                metadata: {
+                    error: ex
+                }
+            }
+        ));
 };
 
 export const imageDetail = (id) => {
@@ -29,11 +36,18 @@ export const imageDetail = (id) => {
         })
         .then(json => {
             const { farm, server, id, secret, title } = json.photo;
-            return {
+            const data = {
                 id,
                 title: title._content,
                 mediaUrl: `https://farm${farm}.staticflickr.com/${server}/${id}_${secret}.jpg`
-            }
+            };
+            return { data }
         })
-        .catch(ex => ({error: ex}));
+        .catch(ex => (
+            {
+                metadata: {
+                    error: ex
+                }
+            }
+        ));
 };

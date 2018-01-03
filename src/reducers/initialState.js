@@ -2,6 +2,10 @@ export default {
     images: {
         data: [],
         selected: {},
-        details: {}
+        metadata: {}
+    },
+    details: {
+        data: {},
+        metadata: {}
     }
 };

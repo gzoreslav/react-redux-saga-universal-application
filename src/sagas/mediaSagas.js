@@ -5,24 +5,37 @@ import * as types from '../constants/actionTypes';
 
 export function* searchMediaSaga({ payload }) {
     try {
-        const images = yield call(flickrImages, payload);
+        const response = yield call(flickrImages, payload);
         yield [
-            put({ type: types.SEARCH_MEDIA_SUCCESS, images }),
-            put({ type: types.SELECTED_IMAGE, image: images && images[0] })
+            put({ type: types.SEARCH_MEDIA_SUCCESS, images: response }),
+            put({ type: types.SELECTED_IMAGE, image: response && response.data && response.data[0] })
         ];
     } catch (error) {
-        yield put({ type: types.SEARCH_MEDIA_FAILURE, error });
+        const response = {
+            data: [],
+            selected: {},
+            metadata: {
+                error
+            }
+        };
+        yield put({ type: types.SEARCH_MEDIA_FAILURE, details: response });
     }
 }
 
 
 export function* getImageDetails({ payload }) {
     try {
-        const image = yield call(imageDetail, payload);
+        const response = yield call(imageDetail, payload);
         yield [
-            put({ type: types.GET_IMAGE_DETAILS_SUCCESS, image })
+            put({ type: types.GET_IMAGE_DETAILS_SUCCESS, details: response })
         ];
     } catch (error) {
-        yield put({ type: types.GET_IMAGE_DETAILS_FAILURE, error });
+        const response = {
+            data: {},
+            metadata: {
+                error
+            }
+        };
+        yield put({ type: types.GET_IMAGE_DETAILS_FAILURE, details: response });
     }
 }

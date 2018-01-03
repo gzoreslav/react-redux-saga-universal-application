@@ -24,7 +24,14 @@ export default [
         exact: true,
         component: Media,
         loadData: () => flickrImages(),
-        getPreloadedState: data => ({images: {data: data[0] || [], selected: data[0][0]}}),
+        getPreloadedState: data => {
+            let metadata = data[0].metadata || {};
+            return {images: {
+                data: data[0].data || [],
+                selected: (data[0].data && data[0].data[0]) || {},
+                metadata
+            }}
+        },
         pageTitle: 'Media'
     },
     {
@@ -32,7 +39,13 @@ export default [
         key: 'imageDetails',
         component: ImageDetails,
         loadData: (match) => imageDetail(match && match.params.imageid),
-        getPreloadedState: data => ({images: {details: data[0]}}),
+        getPreloadedState: data => {
+            let metadata = data[0].metadata || {};
+            return {details: {
+                data: data[0].data || {},
+                metadata
+            }}
+        },
         pageTitle: 'Details'
     }
 ];
