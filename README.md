@@ -6,8 +6,9 @@
 
 This boilerplate example allows you to create React universal application:
 
-* server-side rendering for the first lunch with API data fetching (and if JS is disabled)
-* SPA in other cases
+* server-side rendering for the first lunch with API data fetching (and if JS is disabled), SPA in other cases
+* show ajax loaders for request progress
+* handle API request errors for both - server and client -sides rendering
 
 | *JS Off (server-side render)* | *JS On (client-side render)* |
 |-------------------------------|------------------------------|
@@ -167,6 +168,10 @@ Copy _dist_ folder to the server
 ```
 
 ## What new?
+
+### v5.x.x
+
+* handle API fetch errors for both: client and server -sides rendering
 
 ### v4.x.x
 
