@@ -6,7 +6,7 @@
 
 This boilerplate example allows you to create React universal application:
 
-* server-side rendering for the first lunch with API data fetching (and if JS is disabled), SPA in other cases
+* server-side rendering for the first launch with API data fetching (and if JS is disabled), SPA in other cases
 * show ajax loaders for request progress
 * handle API request errors
 
@@ -40,11 +40,11 @@ This boilerplate example allows you to create React universal application:
 ```
 
 
-## How to develop, build and lunch?
+## How to develop, build and launch?
 
-There are few options for lunch:
+There are few options for launch:
 
-* Run in development mode and check server rendering - shows all application's opportunities (server-side rendering for the first lunch with fetchind data from the server using API), working as the SPA after the firs lunch
+* Run in development mode and check server rendering - shows all application's opportunities (server-side rendering for the first launch with fetchind data from the server using API), working as the SPA after the firs launch
 * Run in development mode - use this options for developing
 * Build for production and run - build client and server bundles, start node server
 
@@ -128,13 +128,13 @@ It builds server.bundle.js in production mode
 | HMR for server.bundle.js | no |
 | Server Rendering | yes |
 
-#### Lunch server
+#### Launch server
 
 ```shell
 > npm run start-prod-iso
 ```
 
-It lunch server.bundle.js built in the previous steps
+It launch server.bundle.js built in the previous steps
 
 ## How to deploy
 
@@ -161,7 +161,7 @@ on the server.
 
 Copy _dist_ folder to the server
 
-### 3. Lunch node server
+### 3. Launch node server
 
 ```shell
 > npm run start-prod-iso
