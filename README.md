@@ -208,4 +208,4 @@ I am always open to [your feedback](https://github.com/gzoreslav/The-Simplest-Re
 
 This software is distributed under an MIT licence.
 
-Copyright 2017 © Zoreslav Goral
+Copyright 2017-2018 © Zoreslav Goral
